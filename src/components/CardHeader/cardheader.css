@@ -1,0 +1,40 @@
+.header-form{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+}
+.header-form h3{
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+/* Для группы и курсов */
+.header-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.header-label label {
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 576px) {
+  .header-form h3 {
+    font-size: 1.2rem;
+  }
+
+  .header-label label {
+    font-size: 0.8rem;
+  }
+
+  .header-form {
+    padding: 0.5rem;
+  }
+
+  .header-label {
+    margin-bottom: 0.25rem;
+  }
+}

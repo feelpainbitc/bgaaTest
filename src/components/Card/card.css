@@ -1,0 +1,8 @@
+.page-form{
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
