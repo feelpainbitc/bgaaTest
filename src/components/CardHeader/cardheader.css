@@ -8,7 +8,7 @@
     margin: 0 auto;
     margin-bottom: 10px;
 }
-/* Для группы и курсов */
+
 .header-label {
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@
   margin: 0;
 }
 
-/* Адаптивность для мобильных устройств */
+
 @media (max-width: 576px) {
   .header-form h3 {
     font-size: 1.2rem;

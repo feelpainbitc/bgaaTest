@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// Thunk для запроса данных
 export const fetchSubjects = createAsyncThunk(
   "subjects/fetchSubjects",
   async () => {
@@ -21,7 +20,7 @@ export const saveSubjects = createAsyncThunk(
     });
 
     if (!res.ok) throw new Error("Ошибка при сохранении данных");
-    return res.json(); // сервер может вернуть подтверждение
+    return res.json();
   }
 );
 const subjectsSlice = createSlice({
@@ -43,7 +42,6 @@ const subjectsSlice = createSlice({
       const lesson = state.lessons.find((l) => l.uniqueId === lessonId);
       if (!lesson) return;
 
-      // Создаём копию подгруппы, чтобы React/Redux увидел изменения
       lesson.podgroups = lesson.podgroups.map((pg, idx) => {
         if (idx === groupIndex) {
           return { ...pg, [teacherType]: teacherName };
@@ -67,7 +65,6 @@ const subjectsSlice = createSlice({
       const lesson = state.lessons.find((l) => l.uniqueId === lessonId);
       if (!lesson) return;
 
-      // Добавляем новую пустую подгруппу
       lesson.podgroups.push({
         countStudents: "0",
         laboratoryTeacher: "",
@@ -78,7 +75,6 @@ const subjectsSlice = createSlice({
         offsetTeacher: "",
       });
 
-      // Пересчитываем количество студентов на подгруппу
       const total = Number(lesson.studentsNumber);
       const count = lesson.podgroups.length;
       const perGroup = Math.floor(total / count);
@@ -119,8 +115,8 @@ const subjectsSlice = createSlice({
       })
       .addCase(fetchSubjects.fulfilled, (state, action) => {
         state.loading = false;
-        state.lessons = action.payload.data; // берем массив lessons
-        state.teachers = action.payload.teachers; // массив преподавателей
+        state.lessons = action.payload.data;
+        state.teachers = action.payload.teachers;
       })
       .addCase(fetchSubjects.rejected, (state, action) => {
         state.loading = false;

@@ -81,9 +81,6 @@ const CardTable = ({ lesson }) => {
   const handleRemovePodgroup = (index) =>
     dispatch(removePodgroup({ lessonId: lesson.uniqueId, index }));
 
-  // =======================
-  // ПК и планшет
-  // =======================
   const tableView = (
     <Table responsive bordered hover className="d-none d-sm-table">
       <thead>
@@ -207,9 +204,6 @@ const CardTable = ({ lesson }) => {
     </Table>
   );
 
-  // =======================
-  // Мобильная версия
-  // =======================
   const mobileView = (
     <div className="d-block d-sm-none">
       {lesson.podgroups.map((pg, i) => (
@@ -244,7 +238,7 @@ const CardTable = ({ lesson }) => {
           </BSCard.Header>
           <BSCard.Body>
             {rows.map((row) => {
-              if (row.key === "countStudents") return null; // пропускаем здесь
+              if (row.key === "countStudents") return null;
               if (row.key === "additionalInfo") {
                 return (
                   <Form.Group className="mb-2" key={row.key}>
@@ -306,7 +300,6 @@ const CardTable = ({ lesson }) => {
                 </Form.Group>
               );
             })}
-            {/* Добавляем одну строку "Количество человек" для каждой карточки */}
             <Form.Group className="mb-2">
               <Form.Label>Количество человек</Form.Label>
               <Form.Control
